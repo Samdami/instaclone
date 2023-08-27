@@ -11,4 +11,7 @@ SQLAlchemy==1.4.41
 toml==0.10.2
 Werkzeug==2.2.2
 gunicorn
+<<<<<<< HEAD
 psgcopg2-binary
+=======
+>>>>>>> 93609926107a2fd61c8f9567c9ba659c0c31f124

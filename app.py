@@ -9,10 +9,12 @@ base_dir = os.path.dirname(os.path.realpath(__file__))
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(base_dir, 'my_login.db')
+# app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///' + os.path.join(base_dir, 'my_login.db')
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = '5e0b18fd5de07e49f80cb4f8'
 
+# postgres://pipcut_user:Ng626gxN13C8BGaVeKmJQj5jnOWJ9g72@dpg-ciar7ll9aq007teh7370-a.oregon-postgres.render.com/pipcut
 """
 To get a 12-digit (any number of choice) secret key, run this in the terminal:
 
