@@ -33,7 +33,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     # username = db.Column(db.String(255), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    password_hash = db.Column(db.Text(), nullable=False)
+    password = db.Column(db.Text(), nullable=False)
    
 
     def __repr__(self):
@@ -105,9 +105,8 @@ def register():
        
 
             # return render_template('signup.html', username_error=username_msg, email_error=email_msg)
-        password_hash = generate_password_hash(password, method="sha256")
 
-        new_user = User(email=email, password_hash=password_hash)
+        new_user = User(email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
 
